@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chase Elliott – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <style>
+    :root{--bg:#0b1020;--card:#141a2b;--text:#e9e9f5;--muted:#a8b0d0;--accent:#4cc9f0;}
+    *{box-sizing:border-box} html,body{margin:0;height:100%}
+    body{font-family:Arial,system-ui,sans-serif;background:linear-gradient(135deg,#0b1020 0%,#1a1f2b 60%);
+      color:var(--text);}
+    header{position:sticky;top:0;z-index:10;background:rgba(10,12,25,.9);backdrop-filter:saturate(1.2);border-bottom:1px solid #2a2a3a}
+    .wrap{max-width:980px;margin:0 auto;padding:16px}
+    .brand{font-weight:700;letter-spacing:.5px}
+    nav{display:flex;justify-content:space-between;align-items:center}
+    .nav-links{display:flex;gap:16px}
+    a{color:var(--text);text-decoration:none;padding:6px 8px;border-radius:6px}
+    a:hover{background:#1e234a}
+    .menu{display:none}
+    section{padding:64px 0}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+    h1{font-size:2rem;margin:0 0 8px}
+    p{color:var(--muted);line-height:1.6}
+    .btn{display:inline-block;background:var(--accent);color:#002033;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+    @media (max-width: 800px){
+      .grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .menu{display:block;color:var(--text);font-size:1.2rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex;gap:16px;align-items:center;justify-content:space-between;">
+      <div class="brand">Chase Elliott</div>
+      <nav>
+        <div class="nav-links" aria-label="Site navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="menu" aria-label="Toggle navigation" onclick="toggleNav()">Menu</div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="about" class="wrap" style="padding-top:40px;">
+      <div class="grid" style="align-items:center;gap:32px;">
+        <div class="card" style="min-height:180px;">
+          <h1>Hi, I’m Chase.</h1>
+          <p>Engineer and problem solver focused on clean code, accessible design, and thoughtful UX. This single-page site demonstrates a compact, responsive portfolio with smooth interactions—built with vanilla HTML, CSS, and JS.</p>
+        </div>
+        <div class="card" aria-label="Profile" style="min-height:180px;display:flex;flex-direction:column;justify-content:center;gap:8px;align-items:flex-start;">
+          <strong>Location</strong><span>Remote • GMT</span>
+          <strong>Skills</strong><span>HTML, CSS, JS, UI/UX</span>
+          <a class="btn" href="#projects">View Projects</a>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="wrap" style="padding-top:0;">
+      <div class="grid" style="gap:18px;align-items:stretch;">
+        <div class="card">
+          <h2 style="margin-top:0">Project A</h2>
+          <p>A tiny dashboard prototype focusing on readability and responsive cards.</p>
+        </div>
+        <div class="card">
+          <h2 style="margin-top:0">Project B</h2>
+          <p>Accessible form UI with real-time validation (no backend).</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="wrap" style="padding-top:0;">
+      <div class="grid" style="gap:18px;align-items:stretch;">
+        <div class="card" style="min-height:180px;">
+          <h2 style="margin-top:0">Let’s work together</h2>
+          <p>Fill the quick form below to send a note. This is a no-backend demo with client-side validation only.</p>
+          <form onsubmit="handleSubmit(event)" aria-label="Contact form">
+            <input aria-label="Name" placeholder="Your name" required style="padding:10px;border-radius:6px;border:1px solid #2a2a3a;width:100%;margin-bottom:8px;background:#0f1326;color:#fff"><br/>
+            <input aria-label="Email" type="email" placeholder="Email" required style="padding:10px;border-radius:6px;border:1px solid #2a2a3a;width:100%;margin-bottom:8px;background:#0f1326;color:#fff"><br/>
+            <textarea aria-label="Message" placeholder="Message" required style="width:100%;min-height:80px;padding:10px;border-radius:6px;border:1px solid #2a2a3a;background:#0f1326;color:#fff"></textarea><br/>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="card" aria-label="Summary">
+          <h2 style="margin-top:0">Summary</h2>
+          <p>This page demonstrates a responsive, accessible layout with smooth scrolling and a simple interactive form, all in vanilla tech.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    function toggleNav(){ document.querySelector('.nav-links').style.display = 'flex' ;}
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); });});
+    function handleSubmit(e){ e.preventDefault(); alert('Thanks! This is a demo form.'); e.target.reset(); }
+  </script>
+</body>
+</html>
